@@ -42,7 +42,6 @@ body {
   text-decoration: none;
   position: relative;
   padding-left: 2.5rem;
-  letter-spacing: 2px;
 }
 
 .logo::before, .logo::after {
