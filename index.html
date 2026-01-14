@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <title>Obscure - Reverse Engineering</title>
 
+    <link rel="stylesheet" href="/css/main.css">
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+    </script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,16 +29,9 @@
 
     <!-- HEADER -->
     <div id="header"></div>
-
-    <!-- SCRIPT -->
-    <script>
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-            });
-    </script>
+    
 
 </body>
 
 </html>
+
