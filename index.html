@@ -2,26 +2,43 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Obscure - Reverse Engineering</title>
+    <title>Obscure_</title>
 
-    <link rel="stylesheet" href="/css/main.css">
-    <script>
-        fetch("header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-            });
-    </script>
+    <!-- CSS HEADER -->
+    <link rel="stylesheet" href="header.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            padding: 40px;
+        }
+    </style>
 </head>
-    
 <body>
 
-    <!-- HEADER -->
+    <!-- HEADER CARICATO -->
     <div id="header"></div>
-    
+
+    <main>
+        <h1>Benvenuto su Obscure_</h1>
+        <p>Sito in costruzione 🚧</p>
+    </main>
+
+    <!-- SCRIPT PER CARICARE HEADER -->
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").innerHTML = html;
+            });
+    </script>
 
 </body>
-
 </html>
+
 
 
