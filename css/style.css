@@ -130,6 +130,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.report-card a {
+  text-decoration: none;
+}
+
 /* Footer */
 footer {
   background: var(--darker-bg);
