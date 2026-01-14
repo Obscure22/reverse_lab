@@ -82,7 +82,7 @@ body {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   background: var(--accent);
   -webkit-background-clip: text;
