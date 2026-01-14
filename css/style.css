@@ -1,4 +1,4 @@
-*{
+iv*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -47,7 +47,7 @@ body {
 .logo::before, .logo::after {
   content: 'Obscure_';
   display: block;
-  position: absolute;
+  position: relative;
   top: 0px;
   left: 0px;
 }
