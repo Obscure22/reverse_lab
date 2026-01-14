@@ -118,6 +118,13 @@ body {
   backdrop-filter: blur(5px);
 }
 
+.report-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+
 /* Footer */
 footer {
   background: var(--darker-bg);
