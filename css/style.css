@@ -47,7 +47,7 @@ body {
 .logo::before, .logo::after {
   content: 'Obscure_';
   display: block;
-  position: relative;
+  position: absolute;
   top: 0px;
   left: 0px;
 }
