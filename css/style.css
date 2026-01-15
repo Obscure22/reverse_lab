@@ -208,12 +208,9 @@ footer {
 
 /* Container */
 .container {
-  max-width: 1340px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 100px;
+  max-width: 740px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 
