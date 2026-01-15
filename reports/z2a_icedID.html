@@ -118,6 +118,25 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    Execution is then paused at the <span id="inline-code">VirtualProtect</span> call. After executing the function until return, <strong>Step Over</strong> is used to return to the user code.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_11.png" alt="icedID_11" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    At this point, the next step is to locate the decompressed executable in memory. Execution reaches address <span id="inline-code">0x1E07F7</span>. 
+                    In the memory dump, we follow the value at <span id="inline-code">EBX + 0x7014C2</span>.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_12.png" alt="icedID_12" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    The decompressed executable is successfully recovered. The figure below shows the resulting unpacked binary image as it is reconstructed in memory after the decompression stage.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_13.png" alt="icedID_13" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
                 </p>
         </section>
     </section>
