@@ -273,6 +273,24 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    Stepping into <strong>sub_40164B</strong> reveals that the function implements network communication using the WinHTTP API. Specifically, it invokes 
+                    <span id="inline-code">WinHttpOpen</span>, <span id="inline-code">WinHttpConnect</span>, and <span id="inline-code">WinHttpOpenRequest</span> to establish a connection and 
+                    issue an HTTP GET request to the C2 server. The function then calls <span id="inline-code">WinHttpSetOption</span>, followed by <span id="inline-code">WinHttpSendRequest</span> and 
+                    <span id="inline-code">WinHttpReceiveResponse</span> to send the request and receive the server’s response.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_30.png" alt="icedID_30" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    A particularly interesting aspect of this function is the call to <span id="inline-code">WinHttpSendRequest</span>. No data is sent to the server, as the <span id="inline-code">EBX</span> 
+                    register is explicitly set to zero using an XOR operation. This behavior suggests that the request is likely used as a connectivity check, simply verifying whether the C2 server is 
+                    reachable and responsive. Based on this observation, the function <strong>sub_40164B</strong> can be renamed to <strong>check_c2</strong>. And the function <strong>sub_401224</strong> 
+                    can be renamed to <strong>communications</strong>.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_31.png" alt="icedID_31" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
                 </p>
         </section>
     </section>
