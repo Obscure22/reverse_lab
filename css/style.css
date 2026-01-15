@@ -242,7 +242,7 @@ footer {
     font-family: "Courier New", monospace;
 }
 
-/* Logo before title */
+/* Logo below title */
 .post__bottom {
   display: flex;
   align-items: center;
@@ -261,7 +261,7 @@ footer {
   padding: 3px;
   margin-right: 8px;
   border: 2px solid var(--accent);
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   overflow: hidden
 }
 
