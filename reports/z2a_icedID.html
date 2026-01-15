@@ -368,6 +368,32 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    Once this string has been constructed, execution returns to the communication routine, where an additional call to wsprintfA is performed. At this point, it has created the <strong>photo.png</strong> 
+                    string. It includes the campaign identifier, represented by the first DWORD, followed by the second DWORD, which corresponds to the timestamp obtained via the RDTSC instruction. 
+                    The string also contains the output of the anti-VM routine (<span id="inline-code">0000000000FF</span>) and the processor/environment identifier <span id="inline-code">40000006</span>. 
+                    The figure below shows the string which is appended to the URL.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_41.png" alt="icedID_41" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    The figure below shows that the routine invokes <span id="inline-code">WinHttpOpen</span>, followed by a call to <span id="inline-code">WinHttpConnect</span>. 
+                    In this invocation, the destination port is set to <span id="inline-code">0x1BB</span> (<strong>443</strong>), indicating communication over HTTPS, and the specified C2 server domain is 
+                    <span id="inline-code">boldidiotruss.xyz</span>.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_42.png" alt="icedID_42" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    The routine then calls <span id="inline-code">WinHttpOpenRequest</span>, where an HTTP GET request is constructed. The ObjectName parameter is set to 
+                    <span id="inline-code">\photo.png?id=011e3d33fb0000000000FF40000006</span>, indicating that the previously generated identifier values are embedded directly into the request URI 
+                    sent to the C2 server. Finally, the routine invokes <span id="inline-code">WinHttpSendRequest</span> to transmit the crafted HTTP GET request to the C2 server, and then calls 
+                    <span id="inline-code">WinHttpReceiveResponse</span> to wait for and process the server’s response.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_43.png" alt="icedID_43" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
                 </p>
         </section>
     </section>
