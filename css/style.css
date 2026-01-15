@@ -243,12 +243,12 @@ footer {
 }
 
 /* Logo before title */
-.post__author {
+.container .post__author {
   float: left;
   flex-shrink: 0
 }
 
-.post__author-image {
+.post__author .post__author-image {
   position: relative;
   display: inline-block;
   width: 36px;
