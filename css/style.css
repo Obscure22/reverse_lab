@@ -246,11 +246,21 @@ footer {
 }
 
 /* Logo before title */
-.container .post__author {
+.post__bottom {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 30px;
+  font-weight: 500;
+  color: #fff
+}
+
+.post__author {
+  float: left;
   flex-shrink: 0
 }
 
-.post__author .post__author-image {
+.post__author-image {
   position: relative;
   display: inline-block;
   width: 36px;
