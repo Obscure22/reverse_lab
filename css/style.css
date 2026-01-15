@@ -209,11 +209,14 @@ footer {
 /* Container report */
 .container {
   max-width: 740px;
-  margin: 100px 60px auto;
+  margin: 100px auto;
   padding: 0 20px;
 }
 
 .container-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 50px;
 }
 
@@ -244,7 +247,6 @@ footer {
 
 /* Logo before title */
 .container .post__author {
-  float: left;
   flex-shrink: 0
 }
 
