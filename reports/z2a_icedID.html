@@ -329,6 +329,22 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    Subsequently, execution follows the right branch, where a path separator ("<strong>\\</strong>") is concatenated to the previously retrieved directory path. 
+                    The program then creates a directory named after the current user, and within this directory a file named photo.png is generated, as previously observed during the static analysis phase.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_36.png" alt="icedID_36" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    The function <strong>rc4_decrypt</strong> takes five arguments. Among these, one argument has the value 8, which likely represents the key length, 
+                    while another argument is <strong>unk_A23000</strong>, a buffer composed of 8 bytes. This strongly suggests that the 8-byte buffer stored at <strong>unk_A23000</strong> is used as 
+                    the RC4 encryption key and the rest of the data, with size <span id="inline-code">0x248</span> bytes, is RC4 encrypted with that key. The figure below illustrates the function call 
+                    and its arguments, and also displays the RC4 key value as observed in the hex dump.
+                    <br>
+                    <img src="../img/z2a_icedID/z2a_icedID_37.png" alt="icedID_37" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
                 </p>
         </section>
     </section>
