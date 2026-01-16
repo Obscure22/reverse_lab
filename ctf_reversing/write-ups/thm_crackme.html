@@ -44,7 +44,7 @@
             <h2>Crackme1</h2>
                 <p>
                     After opening the binary in <strong>IDA</strong>, the first notable observation is the allocation of a buffer containing encrypted character data. 
-                    This buffer appears to store obfuscated strings or configuration data that are later decrypted at runtime. Subsequently, a call to memset is performed, 
+                    This buffer appears to store obfuscated strings that are later decrypted at runtime. Subsequently, a call to <span id="inline-code">memset</span> is performed, 
                     which overwrites 27 bytes of the allocated buffer with the character <strong>A</strong> (<span id="inline-code">0x41</span>).
                     <br>
                     <img src="../../img/re_crackme/crackme1_1.png" alt="crackme1_1" onclick="window.open(this.src, '_blank');"
