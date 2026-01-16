@@ -65,7 +65,6 @@
                     <img src="../../img/re_crackme/crackme1_3.png" alt="crackme1_3" onclick="window.open(this.src, '_blank');"
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
-                    <br><br>
                 </p>
             <h2>Crackme2</h2>
                 <p>
@@ -97,7 +96,6 @@
                     <img src="../../img/re_crackme/crackme2_4.png" alt="crackme2_4" onclick="window.open(this.src, '_blank');"
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
-                    <br><br>
                 </p>
             <h2>Crackme3</h2>
                 <p>
@@ -129,6 +127,17 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    At this point, the only remaining step is to decrypt the string stored in the <span id="inline-code">.rodata</span> section. It can be immediately observed that this 
+                    string is Base64-encoded. By decoding it using a tool such as <strong>CyberChef</strong>, the original value is recovered, which corresponds to both the correct password 
+                    and the flag (The decoded string must then be wrapped in the format <strong>flag{}</strong>, producing the final flag value).
+                    <br>
+                    <img src="../../img/re_crackme/crackme3_4.png" alt="crackme3_4" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                </p>
+            <h2>Crackme4</h2>
+                <p>
+                    
                 </p>
         </section>
     </section>
