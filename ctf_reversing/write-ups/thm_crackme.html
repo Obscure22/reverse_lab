@@ -100,6 +100,36 @@
                     <br><br>
                 </p>
             <h2>Crackme3</h2>
+                <p>
+                    The program first performs the same comparison observed previously, confirming that it expects a password to be provided as a command-line parameter before proceeding 
+                    with execution.
+                    <br>
+                    <img src="../../img/re_crackme/crackme3_1.png" alt="crackme3_1" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    Following the right execution branch, several operations are performed. The user input string, stored in <span id="inline-code">EDI</span>, is retrieved, and memory is 
+                    allocated using <span id="inline-code">malloc</span> based on the length of the input. If the memory allocation succeeds, execution continues into the left branch, 
+                    where <span id="inline-code">strlen</span> is invoked twice. Before the second <span id="inline-code">strlen</span> call, the function <strong>sub_80486B0</strong> is executed. 
+                    This subroutine applies an encryption routine to the input string. The encrypted string is then passed to the second <span id="inline-code">strlen</span>, which computes its length.
+                    If the resulting length is not equal to 64 bytes (<span id="inline-code">0x40</span> in hexadecimal), execution follows the right branch and the program prints the message:
+                    “Come on, even my aunt Mildred got this one!”.
+                    <br>
+                    <img src="../../img/re_crackme/crackme3_2.png" alt="crackme3_2" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                    If the length check succeeds, execution continues along the left branch. As illustrated in the figure below, this branch references a string stored in the
+                    <span id="inline-code">.rodata</span> section at address <span id="inline-code">0x08048E8B</span>. This string appears to be encrypted. The program then calls 
+                    <span id="inline-code">strcmp</span>, comparing the encrypted user input (stored in <span id="inline-code">ESI</span>) with this encrypted reference string. 
+                    If the comparison returns 0, indicating that the two strings are equal, execution proceeds to the branch, where a call to <span id="inline-code">puts</span>
+                    prints the message “Correct password!”.
+                    <br>
+                    <img src="../../img/re_crackme/crackme3_3.png" alt="crackme3_3" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
+                    <br><br>
+                </p>
         </section>
     </section>
 
