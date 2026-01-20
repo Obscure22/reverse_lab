@@ -236,7 +236,7 @@
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
-                    Inside the <span id="inline-code">my_secure_test</span> function, a cascade of <span id="inline-code">if</span> conditions is used to compare different parts of the input string.
+                    Inside the <span id="inline-code">my_secure_test</span> function, a cascade of <span id="inline-code">if</span> statements is used to compare different parts of the input string.
                     <br>
                     <img src="../../img/re_crackme/crackme6_3.png" alt="crackme6_3" onclick="window.open(this.src, '_blank');"
                             width="650", onmouseover="this.style.cursor='zoom-in'"
@@ -247,13 +247,20 @@
                     The first byte of the string, stored in the <span id="inline-code">al</span> register, is then compared with <span id="inline-code">0x31</span>. 
                     If the comparison succeeds, the program jumps to the second if.
                     <br>
-                    The first two instructions in this second if increment <span id="inline-code">rax</span> by 1 to point to the second byte (the second character) of the string. 
+                    The first two instructions in this second <span id="inline-code">if</span> increment <span id="inline-code">rax</span> by 1 to point to the second byte (the second character) of the string. 
+                    <br>
                     These operations, observed in these first two if statements, are repeated for all subsequent if conditions.
                     <br>
                     <img src="../../img/re_crackme/crackme6_4.png" alt="crackme6_4" onclick="window.open(this.src, '_blank');"
                             width="650", onmouseover="this.style.cursor='zoom-in'"
                             onmouseout="this.style.cursor='default'">
                     <br><br>
+                    This means that by examining each comparison in its respective if statement, we can reconstruct the correct string. In the end, the sequence of characters compared with 
+                    the user input forms the string <span id="inline-code">1337_pwd</span>, which is exactly the value that solves the challenge, as shown in the figure below.
+                    <br>
+                    <img src="../../img/re_crackme/crackme6_5.png" alt="crackme6_5" onclick="window.open(this.src, '_blank');"
+                            width="650", onmouseover="this.style.cursor='zoom-in'"
+                            onmouseout="this.style.cursor='default'">
                 </p>
         </section>
     </section>
