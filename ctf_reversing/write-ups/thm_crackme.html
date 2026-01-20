@@ -47,9 +47,7 @@
                     This buffer appears to store obfuscated strings that are later decrypted at runtime. Subsequently, a call to <span id="inline-code">memset</span> is performed, 
                     which overwrites 27 bytes of the allocated buffer with the character <strong>A</strong> (<span id="inline-code">0x41</span>).
                     <br>
-                    <img src="../../img/re_crackme/crackme1_1.png" alt="crackme1_1" onclick="window.open(this.src, '_blank');"
-                            width="650", onmouseover="this.style.cursor='zoom-in'"
-                            onmouseout="this.style.cursor='default'">
+                    <img class="post-image" src="../../img/re_crackme/crackme1_1.png" alt="crackme1_1" onclick="window.open(this.src, '_blank');">
                     <br><br>
                     Next, a loop iterates over the encrypted array 26 times (as indicated by the comparison <span id="inline-code">cmp eax, 1Ah</span>). During each iteration, the data is progressively 
                     processed to recover the original content. Once the loop completes, the resulting decrypted string is printed to standard output using the <span id="inline-code">puts</span> function.
