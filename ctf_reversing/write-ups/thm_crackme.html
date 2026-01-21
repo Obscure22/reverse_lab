@@ -257,6 +257,22 @@
                     <img class="post-image" src="../../img/re_crackme/crackme7_7.png" alt="crackme7_7" onclick="window.open(this.src, '_blank');">
                 </p>
             <h2>Crackme8</h2>
+                <p>
+                    In the last challenge, the program again expects an input from the user. Once the input is provided, it is stored in <span id="inline-code">eax</span> and 
+                    the function <span id="inline-code">atoi</span> is called. This function converts the input string into an integer value. The program then compares the converted value 
+                    with <span id="inline-code">0xCAFEF00D</span>.
+
+                    <img class="post-image" src="../../img/re_crackme/crackme8_1.png" alt="crackme8_1" onclick="window.open(this.src, '_blank');">
+
+                    To solve the challenge, it is sufficient to take the value 0xCAFEF00D and convert it into its decimal representation.
+
+                    <img class="post-image" src="../../img/re_crackme/crackme8_2.png" alt="crackme8_2" onclick="window.open(this.src, '_blank');">
+
+                    After that, the integer value can be provided as input. When using the positive value, access is denied; however, when the corresponding negative value is supplied, 
+                    the program reveals the flag.
+
+                    <img class="post-image" src="../../img/re_crackme/crackme8_3.png" alt="crackme8_3" onclick="window.open(this.src, '_blank');">
+                </p>
         </section>
     </section>
 
