@@ -53,6 +53,20 @@
                     to transfer control to the program’s main function.
 
                     <img class="post-image" src="../../img/re_0x41haz/0x41haz_2.png" alt="0x41haz_2" onclick="window.open(this.src, '_blank');">
+
+                    The figure below shows the main function. One of the first things to notice is that some hexadecimal values are pushed onto the stack. The program then calls multiple 
+                    <span id="inline-code">puts</span> functions, one of which prompts the user to enter a password.
+                    <br>
+                    After the password is entered, it is stored on the stack at <span id="inline-code">ebp+s</span>, and its address is then moved into <span id="inline-code">rax</span>. 
+                    The function <span id="inline-code">strlen</span> is then called to compute the length of the input string. This length is compared with the value <span id="inline-code">0x0D</span>
+                    (13). If the result of the comparison is not zero, meaning the string is not exactly 13 characters long, the execution follows the left branch and the program terminates.
+
+                    <img class="post-image" src="../../img/re_0x41haz/0x41haz_3.png" alt="0x41haz_3" onclick="window.open(this.src, '_blank');">
+
+                    In this way, it is possible to determine that the password must be 13 characters long. In fact, if the program is executed and, for example, 13 'A' characters are provided as 
+                    input, a different output is produced. This indicates that the execution has followed the right branch of the program.
+
+                    <img class="post-image" src="../../img/re_0x41haz/0x41haz_4.png" alt="0x41haz_4" onclick="window.open(this.src, '_blank');">
                 </p>
         </section>
     </section>
