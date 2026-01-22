@@ -44,6 +44,15 @@ body {
   padding-left: 2.5rem;
 }
 
+.logo .cursor {
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 /*.logo::before, .logo::after {
   content: 'Obscure_';
   display: block;
