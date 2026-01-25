@@ -56,7 +56,13 @@
                 </p>
             <h2>Local Injection</h2>
                 <p>
-                    
+                    The DLL path is stored within the program as a string variabl. The function then loads the DLL into the address space of the calling process using 
+                    <span id="inline-code">LoadLibraryA</span>, which in our case is the current process. Loading the DLL triggers the execution of its entry point and, consequently, 
+                    the <span id="inline-code">MsgBox</span> function, causing the message box to appear.
+
+                    <img class="post-image" src="../../img/local_dll_injection/local_dll_injection_3.png" alt="local_dll_injection_3" onclick="window.open(this.src, '_blank');">
+
+                    As expected, the message box successfully appears after injecting the DLL.
                 </p>
         </section>
     </section>
