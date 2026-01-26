@@ -49,7 +49,49 @@
                     it asks to insert a password, as shown the figure below.
           
                     <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_1.png" alt="re_challenge_1_2015_flareon_1" onclick="window.open(this.src, '_blank');">
+
+                    When a correct password is provided, the program outputs "You are success"; otherwise, it outputs "You are failure".
+                    <br><br>
+                    By opening the program in IDA, it is possible to initially see the following code snippet. The first two functions encountered are calls to 
+                    <span id="inline-code">GetStdHandle</span>, which return handles to one of the following standard I/O streams for the process: standard input, standard output, and standard error.
+                    The result stored in <span id="inline-code">eax</span> is then saved on the stack at the addresses <span id="inline-code">ebp+var_C</span> and <span id="inline-code">ebp+hFile</span> 
+                    which are <span id="inline-code">stdInput</span> and <span id="inline-code">stdOutput</span> respectively.
+                    <br>
+                    Subsequently, the <span id="inline-code">WriteFile</span> and <span id="inline-code">ReadFile</span> functions are called. <span id="inline-code">WriteFile</span>
+                    takes five input parameters, including the size of the string to be written to the buffer, which is <span id="inline-code">0x2A</span> (<strong>42</strong>) bytes, and the string itself, 
+                    <span id="inline-code">"Let's start out easy\r\nEnter the password>"</span>. The <span id="inline-code">ReadFile</span> function, on the other hand, takes six input parameters, 
+                    including the size of the string to be read, which is <span id="inline-code">0x32</span> (<strong>50</strong>) bytes, and <span id="inline-code">lpBuffer</span>, 
+                    which contains the user input stored at address <span id="inline-code">0x402158</span>.
                     
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_2.png" alt="re_challenge_1_2015_flareon_2" onclick="window.open(this.src, '_blank');">
+
+                    The remaining part of the code is shown in the figure below. From this, it can be observed that a loop is executed first; if the loop completes successfully, 
+                    the program follows the left branch and prints the message "you are success", otherwise it follows the right branch and prints "you are failure".
+
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_3.png" alt="re_challenge_1_2015_flareon_3" onclick="window.open(this.src, '_blank');">
+
+                    By analyzing the loop, it is possible to understand what is happening. A byte is read from address <span id="inline-code">0x402158</span>, which corresponds to the user input. 
+                    Since <span id="inline-code">ecx</span> is initially set to 0, this byte represents the first character of the user input and is loaded into <span id="inline-code">al</span>. 
+                    This byte is then XORed with <span id="inline-code">0x7D</span> and compared with the first byte stored at address <span id="inline-code">0x402140</span>.
+                    <br>
+                    If the result of the comparison is nonzero, the two bytes are not equal and the loop terminates. If the result is zero, the bytes match, <span id="inline-code">ecx</span> 
+                    is incremented by 1, compared against <span id="inline-code">0x18</span> (<strong>24</strong>), and the loop repeats. This indicates that the loop will execute 24 times if 
+                    all bytes are correct. From this, it can be inferred that the password is 24 characters long and is stored at address <span id="inline-code">0x402140</span>.
+
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_4.png" alt="re_challenge_1_2015_flareon_4" onclick="window.open(this.src, '_blank');">
+
+                    The figure below shows the encrypted password stored at <span id="inline-code">0x402140</span> in <span id="inline-code">.data</span> section.
+
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_5.png" alt="re_challenge_1_2015_flareon_5" onclick="window.open(this.src, '_blank');">
+
+                    Finally, by taking this password and loading it into <strong>CyberChef</strong>, it is possible to decode it using the <span id="inline-code">0x7D</span> key, as shown 
+                    in the figure below.
+
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_6.png" alt="re_challenge_1_2015_flareon_6" onclick="window.open(this.src, '_blank');">
+
+                    Running the program again and entering this password will produce the correct response.
+
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_7.png" alt="re_challenge_1_2015_flareon_7" onclick="window.open(this.src, '_blank');">
                 </p>
         </section>
     </section>
