@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obscure RE and MA Dojo</title>
+    
+    <!-- link to fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- link to css file -->
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="/obscure_blog" class="logo">Obscure<span class="cursor">_</span></a>
+          <ul class="nav-links">
+              <li><a href="/obscure_blog">Dojo</a></li>
+              <li><a href="../../offensive_lab/off_lab.html">Offensive Lab</a></li>
+              <li><a href="../re.html">CTF Reverse Engineering</a></li>
+          </ul>
+    </nav>
+    <section class="container">
+        <section class="container-title">
+            <h1>Challenge #1 2015 - Flare-On</h1>
+            <div class="post__bottom">
+                <div class="post__author">
+                    <a href="#" aria-label="ObscureRe">
+                        <img class="post__author-image" src="../../img/logo.png"
+                            alt="Obscure's Picture">
+                    </a>
+                </div>
+                <span>
+                    Obscure_ &nbsp;·&nbsp; <span id="reading-time"></span>
+                </span>
+            </div>
+        </section>
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                This write-up covers the <strong>Flare-On Challenge #1 from 2025</strong>. Time to roll up our sleeves and start reversing.
+            </p>
+        </section>
+        <section>
+            <h2>Analysis</h2>
+                <p>
+                    If you ran the file Flare-On_start_2015.exe, it extracts a file named <span id="inline-code">"i_am_happy_you_are_to_playing_the_flareon_challenge.exe"</span>. Execute this program
+                    it asks to insert a password, as shown the figure below.
+          
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon_1/re_challenge_1_2015_flareon_1.png" alt="re_challenge_1_2015_flareon_1" onclick="window.open(this.src, '_blank');">
+                    
+                </p>
+        </section>
+    </section>
 
+    <script src="../../js/reading-time.js"></script>
+</body>
+</html>
