@@ -200,13 +200,11 @@ body {
 }
 
 .post-image.zoomed {
-  position: fixed;
-  max-width: none;
+  max-width: none;      
   width: auto;
   height: auto;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+  margin: 20px auto;  
   cursor: zoom-out;
 }
 
