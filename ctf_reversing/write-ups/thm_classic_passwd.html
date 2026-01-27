@@ -48,12 +48,12 @@
                     The simplest way to examine the program is to run it. When executed, the sample asks for a username. Entering a value such as <strong>test</strong> results in an 
                     authentication error.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_1.png" alt="classic_passwd_1">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_1.png" alt="classic_passwd_1" onclick="window.open(this.src, '_blank');">
 
                     Opening the binary in <strong>IDA</strong>, the <span id="inline-code">main</span> function appears as shown in the figure below. Inside main, two functions are called: 
                     <span id="inline-code">vuln</span> and <span id="inline-code">gfl</span>.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_2.png" alt="classic_passwd_2">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_2.png" alt="classic_passwd_2" onclick="window.open(this.src, '_blank');">
 
                     Inside the <span id="inline-code">vuln</span> function, several memory write operations are performed at the beginning.
                     The function then calls <span id="inline-code">printf</span> to display the message "Insert your username: ". The user input is stored at <span id="inline-code">ebp+src</span>
@@ -61,7 +61,7 @@
                     <span id="inline-code">rsi</span>, is compared with the user input using <span id="inline-code">strcmp</span>. If the result of the comparison is 0, the two strings are equal 
                     and execution follows the left branch; otherwise, the program fails.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_3.png" alt="classic_passwd_3">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_3.png" alt="classic_passwd_3" onclick="window.open(this.src, '_blank');">
 
                     The only part that needs to be understood in order to determine the correct username is the first portion of the function, where a large number of bytes are allocated in memory.
                     First, <span id="inline-code">0x2C0</span> (<strong>704</strong>) bytes are allocated on the stack. The hexadecimal value <span id="inline-code">0x207962206564614D</span>
@@ -72,37 +72,36 @@
                     <span id="inline-code">var_20</span>, followed immediately by the value <span id="inline-code">0x3473</span> at <span id="inline-code">var_18</span>. 
                     Any <span id="inline-code">NULL</span> bytes are omitted for clarity.
                     
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_4.png" alt="classic_passwd_4">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_4.png" alt="classic_passwd_4" onclick="window.open(this.src, '_blank');">
 
                     By using <strong>CyberChef</strong>, it is possible to input all these values to convert them into ASCII characters. The figure below shows the resulting output. 
                     As can be seen, this is likely a small easter egg inserted by the binary’s developer. <strong>Note</strong>: All of these values are stored in little-endian format in memory, 
                     so they must be entered in reverse byte order.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_5.png" alt="classic_passwd_5">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_5.png" alt="classic_passwd_5" onclick="window.open(this.src, '_blank');">
 
                     In the second part of the function, operations similar to those described previously are performed, consisting of a series of values written to memory. 
                     By applying the same steps as before and using <strong>CyberChef</strong>, it is possible to reconstruct the username that will later be compared with the input provided by the user. 
                     The two figures below show, respectively, the relevant code and the conversion of the hexadecimal values using <strong>CyberChef</strong>.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_6.png" alt="classic_passwd_6">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_6.png" alt="classic_passwd_6" onclick="window.open(this.src, '_blank');">
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_7.png" alt="classic_passwd_7">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_7.png" alt="classic_passwd_7" onclick="window.open(this.src, '_blank');">
 
                     The next function called in <span id="inline-code">main</span> is <span id="inline-code">gfl</span>. This function does not perform any complex operations; 
                     it simply compares the values of <span id="inline-code">var_4</span> and <span id="inline-code">var_8</span> with the constants <span id="inline-code">0x638A78</span> and 
                     <span id="inline-code">0x2130</span>, respectively. When both conditions are satisfied, the program prints the flag, which is simply the concatenation of the values stored in 
                     <span id="inline-code">var_4</span> and <span id="inline-code">var_8</span>.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_8.png" alt="classic_passwd_8">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_8.png" alt="classic_passwd_8" onclick="window.open(this.src, '_blank');">
 
                     In any case, the correct username has been identified. By executing the program and providing the recovered username as input, the flag is successfully obtained.
 
-                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_9.png" alt="classic_passwd_9">
+                    <img class="post-image" src="../../img/re_classic_passwd/classic_passwd_9.png" alt="classic_passwd_9" onclick="window.open(this.src, '_blank');">
                 </p>
         </section>
     </section>
 
     <script src="../../js/reading-time.js"></script>
-    <script src="../../js/image-zoom.js"></script>
 </body>
 </html>
