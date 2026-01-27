@@ -48,7 +48,7 @@
                     If you ran the file Flare-On_start_2015.exe, it extracts a file named <span id="inline-code">"i_am_happy_you_are_to_playing_the_flareon_challenge.exe"</span>. Execute this program
                     it asks to insert a password, as shown the figure below.
           
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_1.png" alt="re_challenge_1_2015_flareon_1" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_1.png" alt="re_challenge_1_2015_flareon_1">
 
                     When a correct password is provided, the program outputs "You are success"; otherwise, it outputs "You are failure".
                     <br><br>
@@ -63,12 +63,12 @@
                     including the size of the string to be read, which is <span id="inline-code">0x32</span> (<strong>50</strong>) bytes, and <span id="inline-code">lpBuffer</span>, 
                     which contains the user input stored at address <span id="inline-code">0x402158</span>.
                     
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_2.png" alt="re_challenge_1_2015_flareon_2" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_2.png" alt="re_challenge_1_2015_flareon_2">
 
                     The remaining part of the code is shown in the figure below. From this, it can be observed that a loop is executed first; if the loop completes successfully, 
                     the program follows the left branch and prints the message "you are success", otherwise it follows the right branch and prints "you are failure".
 
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_3.png" alt="re_challenge_1_2015_flareon_3" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_3.png" alt="re_challenge_1_2015_flareon_3">
 
                     By analyzing the loop, it is possible to understand what is happening. A byte is read from address <span id="inline-code">0x402158</span>, which corresponds to the user input. 
                     Since <span id="inline-code">ecx</span> is initially set to 0, this byte represents the first character of the user input and is loaded into <span id="inline-code">al</span>. 
@@ -78,24 +78,25 @@
                     is incremented by 1, compared against <span id="inline-code">0x18</span> (<strong>24</strong>), and the loop repeats. This indicates that the loop will execute 24 times if 
                     all bytes are correct. From this, it can be inferred that the password is 24 characters long and is stored at address <span id="inline-code">0x402140</span>.
 
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_4.png" alt="re_challenge_1_2015_flareon_4" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_4.png" alt="re_challenge_1_2015_flareon_4">
 
                     The figure below shows the encrypted password stored at <span id="inline-code">0x402140</span> in <span id="inline-code">.data</span> section.
 
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_5.png" alt="re_challenge_1_2015_flareon_5" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_5.png" alt="re_challenge_1_2015_flareon_5">
 
                     Finally, by taking this password and loading it into <strong>CyberChef</strong>, it is possible to decode it using the <span id="inline-code">0x7D</span> key, as shown 
                     in the figure below.
 
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_6.png" alt="re_challenge_1_2015_flareon_6" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_6.png" alt="re_challenge_1_2015_flareon_6">
 
                     Running the program again and entering this password will produce the correct response.
 
-                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_7.png" alt="re_challenge_1_2015_flareon_7" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/re_challenge_1_2015_flareon/re_challenge_1_2015_flareon_7.png" alt="re_challenge_1_2015_flareon_7">
                 </p>
         </section>
     </section>
 
     <script src="../../js/reading-time.js"></script>
+    <script src="../../js/image-zoom.js"></script>
 </body>
 </html>
