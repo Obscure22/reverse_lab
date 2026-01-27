@@ -191,31 +191,19 @@ body {
 }
 
 .post-image {
-  align-item: center;
   width: 650px;
   height: auto;
   cursor: zoom-in;
   display: block;
+  transition: all 0.3s ease;
   margin: 20px auto;
 }
 
-.zoom-container {
-  display: inline-block;
-  position: relative;
-  cursor: zoom-in;
-}
-
-.zoom-container img {
-  max-width: 100%;
+.post-image.zoomed {
+  max-width: none;      
+  width: auto;
   height: auto;
-  transition: transform 0.3s ease;
-  border-radius: 6px;
-}
-
-.zoom-container img:active {
-  transform: scale(2); /* zoom 2x */
-  z-index: 1000;
-  position: relative;
+  cursor: zoom-out;
 }
 
 /* ========== Footer ========== */
