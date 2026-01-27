@@ -20,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Navigation */
+/* ========== Navigation ========== */
 .navbar {
   position: fixed;
   top: 0;
@@ -131,7 +131,7 @@ body {
   width: 100%;
 }
 
-/* Hero Section */
+/* ========== Hero Section ========== */
 .hero {
   min-height: 70vh;
   display: flex;
@@ -154,7 +154,7 @@ body {
   max-width: 900px;
 }
 
-/* Report Section */
+/* ========== Report Section ========== */
 .reports {
   padding: 5rem 5%;
   background: var(--darker-bg);
@@ -217,7 +217,7 @@ body {
   position: relative;
 }
 
-/* Footer */
+/* ========== Footer ========== */
 footer {
   background: var(--darker-bg);
   padding: 3rem 5%;
@@ -243,7 +243,7 @@ footer {
   transform: translateY(-3px);
 }
 
-/* Container report */
+/* ========== Container report ========== */
 .container {
   max-width: 740px;
   margin: 100px auto;
@@ -280,7 +280,7 @@ footer {
     word-break: break-all;
 }
 
-/* Logo below title */
+/* ========== Logo below title ========== */
 .post__bottom {
   display: flex;
   align-items: center;
