@@ -191,6 +191,7 @@ body {
 }
 
 .post-image {
+  align-item: center;
   width: 650px;
   height: auto;
   cursor: zoom-in;
