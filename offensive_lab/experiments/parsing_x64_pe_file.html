@@ -60,7 +60,7 @@
                     which is the Magic number and <span id="inline-code">e_lfanew</span> which is a 4-byte value that gives the offset to the start of the NT Header. 
                     The <span id="inline-code">e_lfanew</span> field is always found at offset <span id="inline-code">0x3C</span>.
                     <br><br>
-                    The figure below shows the portion of C code where the file handle is passed to the <span id="inline-code">Parsing_pe</span> function. This handle is then used to map 
+                    The C code snippet below shows the file handle being passed to the <span id="inline-code">Parsing_pe</span> function. This handle is then used to map 
                     the file into memory. After mapping, a pointer to the DOS header, <span id="inline-code">pImgDosHdr</span>, is obtained for the file in memory. 
                     Using this pointer, the program prints the magic number.
 
