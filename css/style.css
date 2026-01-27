@@ -200,7 +200,7 @@ body {
 }
 
 .post-image.zoomed {
-  max-width: 100%;
+  max-width: none;
   width: auto;
   height: auto;
   z-index: 1000;
