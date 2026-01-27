@@ -198,6 +198,25 @@ body {
   margin: 20px auto;
 }
 
+.zoom-container {
+  display: inline-block;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.zoom-container img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 6px;
+}
+
+.zoom-container img:active {
+  transform: scale(2); /* zoom 2x */
+  z-index: 1000;
+  position: relative;
+}
+
 /* Footer */
 footer {
   background: var(--darker-bg);
