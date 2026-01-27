@@ -68,18 +68,18 @@
                     The figure below shows the program execution. As we can see, the magic number is <span id="inline-code">0x5A4D</span> (<strong>MZ</strong>), confirming that the 
                     file is a valid executable.
 
-                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_3.png" alt="parsing_x64_pe_file_3" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_3.png" alt="parsing_x64_pe_file_3">
 
                     For completeness, the figure below shows the output of all the fields in the DOS header with their corresponding values.
 
-                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_4.png" alt="parsing_x64_pe_file_4" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_4.png" alt="parsing_x64_pe_file_4">
                 </p>
             <h2>DOS Stub</h2>
                 <p>
                     Following the DOS header, the DOS stub contains an error message that displays "This program cannot be run in DOS mode" when the program is run in DOS as shown the figure below
                     using <strong>HxD</strong>.
 
-                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_5.png" alt="parsing_x64_pe_file_5" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_5.png" alt="parsing_x64_pe_file_5">
                 </p>
             <h2>NT Header (IMAGE_NT_HEADERS)</h2>
                 <p>
@@ -95,11 +95,11 @@
                     The C code snippet below shows how the <span id="inline-code">e_lfanew</span> field is used to point to the next header in the file structure, which is the NT header. 
                     The address of the NT header is then stored using the <span id="inline-code">pImgNtHdr</span> pointer. Using this pointer, the program prints the NT header signature.
 
-                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_6.png" alt="parsing_x64_pe_file_6" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_6.png" alt="parsing_x64_pe_file_6">
 
                     By executing the program, the correct file signature can be observed.
 
-                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_7.png" alt="parsing_x64_pe_file_7" onclick="window.open(this.src, '_blank');">
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_7.png" alt="parsing_x64_pe_file_7">
                 </p>
             <h2>File Header (IMAGE_FILE_HEADER)</h2>
                 <p>
