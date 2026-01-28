@@ -125,6 +125,19 @@
                 </p>
             <h2>Optional Header (IMAGE_OPTIONAL_HEADER)</h2>
                 <p>
+                    The Optional Header is essential for an executable file. It has two versions: one for 32-bit environments and one for 64-bit environments. The difference between these 
+                    two versions is in the data types used: <span id="inline-code">DWORD</span> is used in the 32-bit version, while <span id="inline-code">ULONGLONG</span> is used in the 
+                    64-bit version.
+                    <br>
+                    Since the Optional Header contains many fields with important information, we will focus only on the most commonly used ones: <span id="inline-code">Magic</span>, which 
+                    indicates whether the image is 32-bit or 64-bit; <span id="inline-code">MajorOperatingSystemVersion</span> and <span id="inline-code">MinorOperatingSystemVersion</span>, 
+                    which specify the required OS version; <span id="inline-code">SizeOfCode</span>, which gives the size of the <span id="inline-code">.text</span> section; 
+                    <span id="inline-code">AddressOfEntryPoint</span>, which is the offset to the entry point of the file (typically the main function); <span id="inline-code">BaseOfCode</span>, 
+                    which gives the offset to the start of the <span id="inline-code">.text</span> section; <span id="inline-code">SizeOfImage</span>, which indicates the size of the image in bytes; 
+                    <span id="inline-code">ImageBase</span>, which specifies the preferred memory address for loading the application (although due to ASLR, it is rarely mapped there); 
+                    and <span id="inline-code">DataDirectory</span>, an array of <span id="inline-code">IMAGE_DATA_DIRECTORY</span> structures containing the directories in the PE file.
+                    <br>
+                    The following code snippet shows how to access these fields.
                     
                 </p>
         </section>
