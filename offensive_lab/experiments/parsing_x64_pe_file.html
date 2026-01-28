@@ -103,6 +103,28 @@
                 </p>
             <h2>File Header (IMAGE_FILE_HEADER)</h2>
                 <p>
+                    The File Header can be accessed through the NT Header data structure. The most important fields include <span id="inline-code">NumberOfSections</span>, which specifies 
+                    the number of sections in the PE file; <span id="inline-code">Characteristics</span>, which define certain attributes of the executable; and 
+                    <span id="inline-code">SizeOfOptionalHeader</span>, which specifies the size of the following header.
+                    <br>
+                    The following code snippet shows how to access the fields contained in the File Header data structure using the <span id="inline-code">pImgNtHdr</span> pointer.
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_8.png" alt="parsing_x64_pe_file_8" onclick="window.open(this.src, '_blank');">
+
+                    The figure below shows the program output. For example, the <span id="inline-code">Machine</span> field has the value <span id="inline-code">0x8664</span>, which indicates 
+                    that the binary was compiled for the 64-bit architecture. The <span id="inline-code">NumberOfSections</span> field has the value <span id="inline-code">0x9</span>, 
+                    indicating that the executable contains nine sections.
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_9.png" alt="parsing_x64_pe_file_9" onclick="window.open(this.src, '_blank');">
+
+                    This can be confirmed by opening the file with <strong>PE Studio</strong>, as shown in the figures below.
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_10.png" alt="parsing_x64_pe_file_10" onclick="window.open(this.src, '_blank');">
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_11.png" alt="parsing_x64_pe_file_11" onclick="window.open(this.src, '_blank');">
+                </p>
+            <h2>Optional Header (IMAGE_OPTIONAL_HEADER)</h2>
+                <p>
                     
                 </p>
         </section>
