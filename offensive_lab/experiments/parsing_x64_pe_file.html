@@ -160,7 +160,13 @@
                 </ul>
                 <br>
                 <p>
-                    The following code snippet shows how to access the Section Header and print information about the PE sections.
+                    The following code snippet shows how to access the Section Header and print information about the PE sections. As can be observed, to obtain a pointer to the Section 
+                    Header it is necessary to move through the previously headers loaded in memory. Note that <span id="inline-code">pImgNtHdr->FileHeader.SizeOfOptionalHeader</span> 
+                    is used instead of <span id="inline-code">sizeof(IMAGE_OPTIONAL_HEADER64)</span>. This is because using <span id="inline-code">sizeof(IMAGE_OPTIONAL_HEADER64)</span> 
+                    would only work correctly for 64-bit binaries. By relying on <span id="inline-code">SizeOfOptionalHeader</span>, the code remains compatible with both 32-bit and 
+                    64-bit executables, where the size of the Optional Header differs.
+                    
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_14.png" alt="parsing_x64_pe_file_14" onclick="window.open(this.src, '_blank');">
                 </p>
         </section>
     </section>
