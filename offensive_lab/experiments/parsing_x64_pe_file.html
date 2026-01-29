@@ -176,6 +176,23 @@
                 <p>
                     This section presents the implementation of a custom routine for parsing the Import Table of a PE file in order to extract and display the imported DLLs and functions.
                     The executable files rely on imported DLLs to perform a wide range of operations, such as file handling, memory management, process creation, and network communication.
+                    <br>
+                    First, it is necessary to locate the RVA of the Data Directory. Before proceeding, an example is presented to clarify the process. As shown in the figure below, by 
+                    opening <span id="inline-code">notepad.exe</span> with <strong>CFF Explorer</strong>, it is possible to inspect the Data Directory under the Optional Header. 
+                    From this view, it can be observed that the Import Table is located at the RVA <span id="inline-code">0x2D0C8</span>, which falls within the <span id="inline-code">.rdata</span>
+                    section.
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_16.png" alt="parsing_x64_pe_file_16" onclick="window.open(this.src, '_blank');">
+
+                    By examining the Section Header, it is possible to obtain the Virtual Address and Virtual Size of the <span id="inline-code">.rdata</span> section as shown the figure below. 
+                    This allows us to verify that the RVA <span id="inline-code">0x2D0C8</span> indeed falls within the range of the section. 
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_17.png" alt="parsing_x64_pe_file_17" onclick="window.open(this.src, '_blank');">
+
+                    As shown below, the output of the Python script confirms that the RVA <span id="inline-code">0x2D0C8</span> falls within the range of the <span id="inline-code">.rdata</span> 
+                    section.
+
+                    <img class="post-image" src="../../img/parsing_x64_pe_file/parsing_x64_pe_file_18.png" alt="parsing_x64_pe_file_18" onclick="window.open(this.src, '_blank');">
                 </p>
         </section>
     </section>
