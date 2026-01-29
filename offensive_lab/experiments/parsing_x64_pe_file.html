@@ -212,11 +212,14 @@
                     <br><br>
                     where <span id="inline-code">imageBase</span> is the start address where the binary is loaded, <span id="inline-code">rdata.RawOffset</span> is the raw address of the 
                     <span id="inline-code">.rdata</span> section, <span id="inline-code">importDirectory.RVA</span> is the Relative Virtual Address of the Data Directory in the Optional Header and 
-                    <span id="inline-code">rdata.VA</span> is the Virtual Address of the <span id="inline-code">.rdata</span> section. <strong>NOTE 1:</strong> the operation 
-                    <span id="inline-code">RVA - VA</span> is used because to retrieve the RVA what we have to do is <span id="inline-code">VA - Base Image = RVA</span>. <strong>NOTE 2:</strong> in 
-                    the formula, <span id="inline-code">.rdata</span> is used as an example from <span id="inline-code">notepad.exe</span>. In other cases, the Data Directory could reside in a 
-                    different section, such as <span id="inline-code">.text</span>.
+                    <span id="inline-code">rdata.VA</span> is the Virtual Address of the <span id="inline-code">.rdata</span> section. 
                     <br>
+                    <strong>NOTE 1:</strong> the operation <span id="inline-code">RVA - VA</span> is used because to retrieve the RVA what we have to do is 
+                    <span id="inline-code">VA - Base Image = RVA</span>. 
+                    <br>
+                    <strong>NOTE 2:</strong> in the formula, <span id="inline-code">.rdata</span> is used as an example from 
+                    <span id="inline-code">notepad.exe</span>. In other cases, the Data Directory could reside in a different section, such as <span id="inline-code">.text</span>.
+                    <br><br>
                     In exactly the same way, the formula can be adapted in our scenario to obtain the Pointer to Raw Address of the Import Table (<span id="inline-code">pImgImportDescriptor</span>), 
                     as shown in the code snippet below.
 
